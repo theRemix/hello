@@ -30,7 +30,7 @@ class Server {
 	}
 	
 	static function run() {
-		var cnx = Mysql.connect( Config.mysql );
+		var cnx = Sqlite.open( Config.sqlite.database );
 		Transaction.main( cnx, function () {
 			ufApp.executeRequest();
 		});

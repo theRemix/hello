@@ -19,7 +19,7 @@ class Tasks extends UFTaskSet
 	static function main() {
 		// Only access the command line runner from the command line, not the web.
 		if ( !neko.Web.isModNeko ) {
-			Transaction.main( Mysql.connect(Config.mysql), function () {
+			Transaction.main( Sqlite.open(Config.sqlite.database), function () {
 
 				var tasks = new Tasks();
 
